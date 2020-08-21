@@ -13,6 +13,7 @@ public class CarRacingGame extends Applet {
 
     @Override
     public void paint(Graphics g) {
-
+        g.setColor(Color.black);
+        g.fillRect(200,0,400,600);
     }
 }
