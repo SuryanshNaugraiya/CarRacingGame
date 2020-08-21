@@ -7,6 +7,7 @@ public class CarRacingGame extends Applet {
 
     @Override
     public void start() {
+        setSize(800,600);
 
     }
 
