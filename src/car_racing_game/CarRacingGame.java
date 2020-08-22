@@ -50,7 +50,7 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
 
             try {
 
-                Thread.sleep(10);
+                Thread.sleep(30);
 
                 white_strip0_y = white_strip0_y + 5;
                 white_strip1_y = white_strip1_y + 5;
@@ -76,7 +76,23 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
                     obscar_y = -95;
                 }
                 obscar_y = obscar_y + 5;
+                //------------------------------collision code starts-----------------
+                if(obscar_y >= 421){
+                    if(obscar_x + 90 >= mycar_x){
+                        int diff = obscar_x+90 - mycar_x;
+                        if(diff <= 90){
+                            t.stop();
+                        }
+                    }
+                    if(obscar_x <= mycar_x + 90){
+                        int diff = mycar_x+90 - obscar_x;
+                        if(diff <= 90){
+                            t.stop();
+                        }
+                    }
 
+                }
+                //------------------------------collision code ends-------------------
                 repaint();
             }
 
