@@ -91,10 +91,14 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-            mycar_x = mycar_x + 5;
+            if(mycar_x <= 545){
+                mycar_x = mycar_x + 5;
+            }
         }
         if(e.getKeyCode() == KeyEvent.VK_LEFT){
-            mycar_x = mycar_x - 5;
+            if(mycar_x >= 120){
+                mycar_x = mycar_x - 5;
+            }
         }
 
     }
