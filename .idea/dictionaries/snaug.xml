@@ -2,6 +2,7 @@
   <dictionary name="snaug">
     <words>
       <w>mycar</w>
+      <w>obstaclecar</w>
     </words>
   </dictionary>
 </component>
