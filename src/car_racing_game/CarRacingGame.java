@@ -2,8 +2,10 @@ package car_racing_game;
 
 import java.applet.Applet;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class CarRacingGame extends Applet implements Runnable{
+public class CarRacingGame extends Applet implements Runnable , KeyListener {
 
     int white_strip0_y=-150;
     int white_strip1_y=40;
@@ -20,6 +22,7 @@ public class CarRacingGame extends Applet implements Runnable{
         setBackground(Color.green);
         t = new Thread(this);
         t.start();
+        img=getImage(getDocumentBase() , "car.jpg");
     }
 
     @Override
@@ -73,6 +76,22 @@ public class CarRacingGame extends Applet implements Runnable{
         g.fillRect(380,white_strip1_y,40,150);
         g.fillRect(380,white_strip2_y,40,150);
         g.fillRect(380,white_strip3_y,40,150);
+
+        g.drawImage(img,400,100,this);
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
