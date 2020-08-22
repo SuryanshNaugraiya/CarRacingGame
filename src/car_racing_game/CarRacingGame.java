@@ -26,12 +26,24 @@ public class CarRacingGame extends Applet implements Runnable{
 
         while (true){
 
-            white_strip0_y = white_strip0_y + 5;
-            white_strip1_y = white_strip1_y + 5;
-            white_strip2_y = white_strip2_y + 5;
-            white_strip3_y = white_strip3_y + 5;
+            try {
 
-            repaint();
+                Thread.sleep(50);
+
+                white_strip0_y = white_strip0_y + 5;
+                white_strip1_y = white_strip1_y + 5;
+                white_strip2_y = white_strip2_y + 5;
+                white_strip3_y = white_strip3_y + 5;
+
+                //System.out.println(white_strip3_y);
+                repaint();
+            }
+
+            catch (InterruptedException e) {
+
+                e.printStackTrace();
+            }
+
         }
     }
 
