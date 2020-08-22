@@ -10,11 +10,15 @@ public class CarRacingGame extends Applet implements Runnable{
     int white_strip2_y=230;
     int white_strip3_y=420;
 
+    Thread t;
+
     @Override
     public void start() {
 
         setSize(800,600);
         setBackground(Color.green);
+        t = new Thread(this);
+        t.start();
     }
 
     @Override
