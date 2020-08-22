@@ -11,6 +11,7 @@ public class CarRacingGame extends Applet implements Runnable{
     int white_strip3_y=420;
 
     Thread t;
+    Image img;
 
     @Override
     public void start() {
