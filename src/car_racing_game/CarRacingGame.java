@@ -22,6 +22,20 @@ public class CarRacingGame extends Applet implements Runnable{
     }
 
     @Override
+    public void run() {
+
+        while (true){
+
+            white_strip0_y = white_strip0_y + 5;
+            white_strip1_y = white_strip1_y + 5;
+            white_strip2_y = white_strip2_y + 5;
+            white_strip3_y = white_strip3_y + 5;
+
+            repaint();
+        }
+    }
+
+    @Override
     public void paint(Graphics g) {
 
         g.setColor(Color.black);
@@ -34,8 +48,4 @@ public class CarRacingGame extends Applet implements Runnable{
         g.fillRect(380,white_strip3_y,40,150);
     }
 
-    @Override
-    public void run() {
-
-    }
 }
