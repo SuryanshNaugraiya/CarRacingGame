@@ -20,11 +20,15 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
 
     int mycar_x = 350;
     int obscar_x =400;
-    int obscar_y = -100;
+    int obscar_y = -130;
 
     Random rand;
     int low = 195;
     int high = 515;
+
+    String str = "Start Game";
+    String score1 = "Score: ";
+    int score2=0;
 
     @Override
     public void start() {
@@ -50,7 +54,7 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
 
             try {
 
-                Thread.sleep(30);
+                Thread.sleep(50);
 
                 white_strip0_y = white_strip0_y + 5;
                 white_strip1_y = white_strip1_y + 5;
@@ -74,19 +78,36 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
                 if(obscar_y == 625){
                     obscar_x = rand.nextInt(high-low) + low;
                     obscar_y = -95;
+                    score2 = score2 + 10;
                 }
-                obscar_y = obscar_y + 5;
+                if(score2 <= 20){
+                    obscar_y = obscar_y + 5;
+                }
+                else if(score2 > 20 && score2 <= 60){
+                    obscar_y = obscar_y + 15;
+                }
+                else if(score2 > 60 && score2 <= 100){
+                    obscar_y = obscar_y + 25;
+                }
+                else {
+                    obscar_y = obscar_y + 30;
+                }
+
                 //------------------------------collision code starts-----------------
-                if(obscar_y >= 421){
+                if(obscar_y >= 420){
                     if(obscar_x + 90 >= mycar_x){
                         int diff = obscar_x+90 - mycar_x;
                         if(diff <= 90){
+                            str = "Game Over";
+                            repaint();
                             t.stop();
                         }
                     }
                     if(obscar_x <= mycar_x + 90){
                         int diff = mycar_x+90 - obscar_x;
                         if(diff <= 90){
+                            str = "Game Over";
+                            repaint();
                             t.stop();
                         }
                     }
@@ -118,6 +139,11 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
 
         g.drawImage(img_mycar,mycar_x,508,this);
         g.drawImage(img_carobs,obscar_x,obscar_y,this);
+
+        g.setColor(Color.CYAN);
+        g.setFont(new Font("Timesroman", Font.BOLD, 26));
+        g.drawString(str, 30, 100);
+        g.drawString(score1+score2, 30, 200);
     }
 
     @Override
