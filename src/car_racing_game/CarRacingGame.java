@@ -34,17 +34,17 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
     public void start() {
 
         setSize(800,600);
-        t = new Thread(this);
-        t.start();
+        setBackground(Color.green);
         //img_mycar = getImage(getDocumentBase() , "mycar.jpg");
         //img_carobs = getImage(getDocumentBase() , "obstaclecar.jpg");
-        setBackground(Color.green);
         img_mycar = createImage(90,90);
         setBackground(Color.red);
         img_carobs = createImage(90,90);
         setBackground(Color.orange);
         addKeyListener(this);
         rand = new Random();
+        t = new Thread(this);
+        t.start();
     }
 
     @Override
@@ -84,13 +84,13 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
                     obscar_y = obscar_y + 5;
                 }
                 else if(score2 > 20 && score2 <= 60){
-                    obscar_y = obscar_y + 15;
+                    obscar_y = obscar_y + 10;
                 }
                 else if(score2 > 60 && score2 <= 100){
-                    obscar_y = obscar_y + 25;
+                    obscar_y = obscar_y + 15;
                 }
                 else {
-                    obscar_y = obscar_y + 30;
+                    obscar_y = obscar_y + 20;
                 }
 
                 //------------------------------collision code starts-----------------
