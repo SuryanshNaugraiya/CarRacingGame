@@ -18,22 +18,29 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
     Image img_mycar;
     Image img_carobs;
 
-    int mycar_x = 380;
-    int obscar_x = 380;
+    int mycar_x = 350;
+    int obscar_x =400;
     int obscar_y = -100;
 
-    Random rand = new Random();
+    Random rand;
+    int low = 195;
+    int high = 515;
 
     @Override
     public void start() {
 
         setSize(800,600);
-        setBackground(Color.green);
         t = new Thread(this);
         t.start();
-        img_mycar = getImage(getDocumentBase() , "mycar.jpg");
-        img_carobs = getImage(getDocumentBase() , "obstaclecar.jpg");
+        //img_mycar = getImage(getDocumentBase() , "mycar.jpg");
+        //img_carobs = getImage(getDocumentBase() , "obstaclecar.jpg");
+        setBackground(Color.green);
+        img_mycar = createImage(90,90);
+        setBackground(Color.red);
+        img_carobs = createImage(90,90);
+        setBackground(Color.orange);
         addKeyListener(this);
+        rand = new Random();
     }
 
     @Override
@@ -43,7 +50,7 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
 
             try {
 
-                Thread.sleep(50);
+                Thread.sleep(10);
 
                 white_strip0_y = white_strip0_y + 5;
                 white_strip1_y = white_strip1_y + 5;
@@ -52,18 +59,23 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
 
                 //System.out.println(white_strip3_y);
 
-                if(white_strip0_y == 600){
+                if(white_strip0_y == 630){
                     white_strip0_y = -150;
                 }
-                if(white_strip1_y == 600){
+                if(white_strip1_y == 630){
                     white_strip1_y = -150;
                 }
-                if(white_strip2_y == 600){
+                if(white_strip2_y == 630){
                     white_strip2_y = -150;
                 }
-                if(white_strip3_y == 600){
+                if(white_strip3_y == 630){
                     white_strip3_y = -150;
                 }
+                if(obscar_y == 625){
+                    obscar_x = rand.nextInt(high-low) + low;
+                    obscar_y = -95;
+                }
+                obscar_y = obscar_y + 5;
 
                 repaint();
             }
@@ -88,7 +100,7 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
         g.fillRect(380,white_strip2_y,40,150);
         g.fillRect(380,white_strip3_y,40,150);
 
-        g.drawImage(img_mycar,mycar_x,100,this);
+        g.drawImage(img_mycar,mycar_x,508,this);
         g.drawImage(img_carobs,obscar_x,obscar_y,this);
     }
 
@@ -101,12 +113,12 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-            if(mycar_x <= 545){
+            if(mycar_x <= 505){
                 mycar_x = mycar_x + 5;
             }
         }
         if(e.getKeyCode() == KeyEvent.VK_LEFT){
-            if(mycar_x >= 120){
+            if(mycar_x >= 205){
                 mycar_x = mycar_x - 5;
             }
         }
