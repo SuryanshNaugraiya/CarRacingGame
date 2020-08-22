@@ -4,6 +4,7 @@ import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 public class CarRacingGame extends Applet implements Runnable , KeyListener {
 
@@ -20,6 +21,8 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
     int mycar_x = 380;
     int obscar_x = 380;
     int obscar_y = -100;
+
+    Random rand = new Random();
 
     @Override
     public void start() {
