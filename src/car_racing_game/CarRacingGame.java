@@ -22,10 +22,12 @@ public class CarRacingGame extends Applet implements Runnable{
 
         g.setColor(Color.black);
         g.fillRect(200,0,400,600);
+
         g.setColor(Color.white);
-        g.fillRect(380,40,40,150);
-        g.fillRect(380,230,40,150);
-        g.fillRect(380,420,40,150);
+        g.fillRect(380,white_strip0_y,40,150);
+        g.fillRect(380,white_strip1_y,40,150);
+        g.fillRect(380,white_strip2_y,40,150);
+        g.fillRect(380,white_strip3_y,40,150);
     }
 
     @Override
