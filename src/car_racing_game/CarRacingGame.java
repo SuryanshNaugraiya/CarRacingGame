@@ -36,6 +36,20 @@ public class CarRacingGame extends Applet implements Runnable{
                 white_strip3_y = white_strip3_y + 5;
 
                 //System.out.println(white_strip3_y);
+
+                if(white_strip0_y == 600){
+                    white_strip0_y = -150;
+                }
+                if(white_strip1_y == 600){
+                    white_strip1_y = -150;
+                }
+                if(white_strip2_y == 600){
+                    white_strip2_y = -150;
+                }
+                if(white_strip3_y == 600){
+                    white_strip3_y = -150;
+                }
+
                 repaint();
             }
 
