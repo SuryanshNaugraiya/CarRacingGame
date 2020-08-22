@@ -13,7 +13,7 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
     int white_strip3_y=420;
 
     Thread t;
-    Image img;
+    Image img_mycar;
     int mycar_x = 380;
 
     @Override
@@ -23,7 +23,7 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
         setBackground(Color.green);
         t = new Thread(this);
         t.start();
-        img=getImage(getDocumentBase() , "mycar.jpg");
+        img_mycar = getImage(getDocumentBase() , "mycar.jpg");
         addKeyListener(this);
     }
 
@@ -79,7 +79,7 @@ public class CarRacingGame extends Applet implements Runnable , KeyListener {
         g.fillRect(380,white_strip2_y,40,150);
         g.fillRect(380,white_strip3_y,40,150);
 
-        g.drawImage(img,mycar_x,100,this);
+        g.drawImage(img_mycar,mycar_x,100,this);
     }
 
     @Override
