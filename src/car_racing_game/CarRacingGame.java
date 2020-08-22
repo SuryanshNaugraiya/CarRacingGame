@@ -3,7 +3,12 @@ package car_racing_game;
 import java.applet.Applet;
 import java.awt.*;
 
-public class CarRacingGame extends Applet {
+public class CarRacingGame extends Applet implements Runnable{
+
+    int white_strip0_y=-150;
+    int white_strip1_y=40;
+    int white_strip2_y=230;
+    int white_strip3_y=420;
 
     @Override
     public void start() {
@@ -21,5 +26,10 @@ public class CarRacingGame extends Applet {
         g.fillRect(380,40,40,150);
         g.fillRect(380,230,40,150);
         g.fillRect(380,420,40,150);
+    }
+
+    @Override
+    public void run() {
+
     }
 }
